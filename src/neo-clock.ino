@@ -64,7 +64,7 @@ const float HUE_PINK = 300.0 / 360.0;
 
 ESP8266WebServer server(WEBSERVER_PORT);
 ESP8266HTTPUpdateServer serverUpdater;
-NeoPixelBrightnessBus<NeoRgbFeature, Neo800KbpsMethod> strip(NUM_LEDS);
+NeoPixelBrightnessBus<NeoGrbFeature, Neo800KbpsMethod> strip(NUM_LEDS);
 
 void setup() {
   Serial.begin(115200);
@@ -207,7 +207,7 @@ void setTimePointColors(int h, int m, int s, RgbColor hColor, RgbColor mColor, R
   } else if (s == h) {
     strip.SetPixelColor(s, RgbColor::LinearBlend(hColor, sColor, 0.5));
   }  else if (h == m) {
-    strip.SetPixelColor(s, RgbColor::LinearBlend(hColor, mColor, 0.5));
+    strip.SetPixelColor(m, RgbColor::LinearBlend(hColor, mColor, 0.5));
   }
 }
 
